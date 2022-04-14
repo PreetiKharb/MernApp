@@ -1,9 +1,14 @@
 const exp = require('constants')
+const colors = require('colors')
 const express = require('express')
 const dotenv = require('dotenv').config()
 const {errorHandler} = require('../backend/middleware/errorMiddleware')
+const connectDB = require('./config/db')
 const port = process.env.PORT || 5000
 const goalRouter = require('./routes/goalRoutes')
+
+
+connectDB()
 const app = express()
 
 // middleware for request parsing
